@@ -17,9 +17,9 @@ jobs:
     - name: Create build directory
       run: mkdir tdlib_backend/build
     - name: Configure CMake
-      run: cd tdlib_backend/build && cmake ../..
+      run: cd tdlib_backend/build && cmake ..
     - name: Build
-      run: cd build && make
+      run: cd tdlib_backend/build && make
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
