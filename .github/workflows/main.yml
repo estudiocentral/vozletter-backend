@@ -15,13 +15,17 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get update && sudo apt-get install -y g++ cmake make
     - name: Create build directory
-      run: mkdir tdlib_backend/build
+      run: mkdir -p tdlib_backend/build
     - name: Configure CMake
       run: cd tdlib_backend/build && cmake ..
     - name: Build
       run: cd tdlib_backend/build && make
     - name: List build directory
-      run: ls -l tdlib_backend/build
+      run: ls -lR tdlib_backend/build
+    - name: Change permissions
+      run: chmod +x tdlib_backend/build/vozletter_backend
+    - name: Show CMakeCache.txt
+      run: cat tdlib_backend/build/CMakeCache.txt
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
