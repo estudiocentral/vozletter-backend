@@ -23,7 +23,9 @@ jobs:
     - name: Show build logs
       run: cat tdlib_backend/build/build.log
     - name: Compile TDLib FFI
-      run: g++ -std=c++17 -shared -fPIC tdlib_backend/tdlib_ffi.cpp -o tdlib_backend/libtdlib_ffi.so -ltdjson
+      run: |
+        cd tdlib_backend
+        g++ -std=c++17 -shared -fPIC tdlib_ffi.cpp -o libtdlib_ffi.so -ltdjson
     - name: List build directory
       run: ls -lR tdlib_backend/build
     - name: Change permissions
