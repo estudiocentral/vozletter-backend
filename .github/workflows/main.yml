@@ -20,6 +20,8 @@ jobs:
       run: cd tdlib_backend/build && cmake ..
     - name: Build
       run: cd tdlib_backend/build && make
+    - name: List build directory
+      run: ls -l tdlib_backend/build
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
