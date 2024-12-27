@@ -19,7 +19,9 @@ jobs:
     - name: Configure CMake
       run: cd tdlib_backend/build && cmake ..
     - name: Build
-      run: cd tdlib_backend/build && make VERBOSE=1
+      run: cd tdlib_backend/build && make  > build.log 2>&1
+    - name: Show build logs
+      run: cat tdlib_backend/build/build.log
     - name: List build directory
       run: ls -lR tdlib_backend/build
     - name: Change permissions
