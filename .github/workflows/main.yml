@@ -22,6 +22,8 @@ jobs:
       run: cd tdlib_backend/build && make  > build.log 2>&1
     - name: Show build logs
       run: cat tdlib_backend/build/build.log
+    - name: Copy tdlib_ffi.cpp
+      run: cp tdlib_backend/tdlib_ffi.cpp tdlib_backend/
     - name: List tdlib_backend directory
       run: ls -l tdlib_backend
     - name: Compile TDLib FFI
